@@ -10,160 +10,160 @@
 			</div>
 		</div>
 		<div class="row cards">
-			<div class="col-md-4">
-				<div class="card shadow">
-					<div class="card-body">
-						<h3 class="title">
-							<i class="fas fa-hand-holding-usd"></i>TOTAL REVENUE</h3>
-						<h2 class="number" :style="{color: '#7ED321'}">54,540</h2>
-					</div>
+			<div class="card ">
+				<div class="card-body">
+					<h3 class="title">
+						<i class="fas fa-hand-holding-usd"></i>TOTAL REVENUE</h3>
+					<h2 class="number" :style="{color: '#7ED321'}">54,540</h2>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="card shadow">
-					<div class="card-body">
-						<h3 class="title">
-							<i class="fas fa-th-large"></i>TOTAL COST</h3>
-						<h2 class="number" :style="{color: '#D0021B'}">12,660</h2>
-					</div>
+			<div class="card shadow">
+				<div class="card-body">
+					<h3 class="title">
+						<i class="fas fa-th-large"></i>TOTAL COST</h3>
+					<h2 class="number" :style="{color: '#D0021B'}">12,660</h2>
 				</div>
+			</div>
 
-			</div>
-			<div class="col-md-4">
-				<div class="card shadow">
-					<div class="card-body">
-						<h3 class="title">
-							<i class="fas fa-money-bill"></i>NET INCOME</h3>
-						<h2 class="number" :style="{color: '#4A90E2'}">41,880</h2>
-					</div>
+			<div class="card shadow">
+				<div class="card-body">
+					<h3 class="title">
+						<i class="fas fa-money-bill"></i>NET INCOME</h3>
+					<h2 class="number" :style="{color: '#4A90E2'}">41,880</h2>
 				</div>
-
 			</div>
+
 		</div>
 		<div class="row activity">
 			<LineChart />
 		</div>
 
 		<div class="row third_block_row">
-			<div class="col-md-6">
-				<div class="website">
-					<div class="title">Transaction Website</div>
-					<div class="items">
-						<div class="item">
-							<div class="left">
-								<div class="icon">
-									<img src="https://png.icons8.com/metro/1600/facebook.png" alt="">
-								</div>
-								<div class="name">Facebook</div>
+			<div class="website">
+				<div class="title">Transaction Website</div>
+				<div class="items">
+					<div class="item">
+						<div class="left">
+							<div class="icon">
+								<img src="https://png.icons8.com/metro/1600/facebook.png" alt="">
 							</div>
-							<div class="right">
-								<div class="number">45836</div>
-								<div class="rate" :style="{color: '#7ED321'}"><i class="fas fa-arrow-up"></i>
-
-20%</div>
-							</div>
+							<div class="name">Facebook</div>
 						</div>
-						<div class="item">
-							<div class="left">
-								<div class="icon">
-									<img src="https://cdn.icon-icons.com/icons2/887/PNG/512/Google_icon-icons.com_68981.png" alt="">
-								</div>
-								<div class="name">Facebook</div>
-							</div>
-							<div class="right">
-								<div class="number">45836</div>
-								<div class="rate" :style="{color: '#7ED321'}"><i class="fas fa-arrow-up"></i>
+						<div class="right">
+							<div class="number">45836</div>
+							<div class="rate" :style="{color: '#7ED321'}">
+								<i class="fas fa-arrow-up"></i>
 
-20%</div>
-							</div>
+								20%</div>
 						</div>
-						<div class="item">
-							<div class="left">
-								<div class="icon">
-									<img src="https://cdn.icon-icons.com/icons2/512/PNG/512/shopify_icon-icons.com_50754.png" alt="">
-								</div>
-								<div class="name">Facebook</div>
-							</div>
-							<div class="right">
-								<div class="number">45836</div>
-								<div class="rate" :style="{color: '#D0021B'}"><i class="fas fa-arrow-down"></i>
-
-20%</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="left">
-								<div class="icon">
-									<img src="https://image.freepik.com/free-icon/wordpress-logo-of-a-letter-in-a-circle_318-49857.jpg" alt="">
-								</div>
-								<div class="name">Facebook</div>
-							</div>
-							<div class="right">
-								<div class="number">45836</div>
-								<div class="rate" :style="{color: '#D0021B'}"><i class="fas fa-arrow-down"></i>20%</div>
-							</div>
-						</div>
-
 					</div>
+					<div class="item">
+						<div class="left">
+							<div class="icon">
+								<img src="https://cdn.icon-icons.com/icons2/887/PNG/512/Google_icon-icons.com_68981.png" alt="">
+							</div>
+							<div class="name">Facebook</div>
+						</div>
+						<div class="right">
+							<div class="number">45836</div>
+							<div class="rate" :style="{color: '#7ED321'}">
+								<i class="fas fa-arrow-up"></i>
+
+								20%</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="left">
+							<div class="icon">
+								<img src="https://cdn.icon-icons.com/icons2/512/PNG/512/shopify_icon-icons.com_50754.png" alt="">
+							</div>
+							<div class="name">Facebook</div>
+						</div>
+						<div class="right">
+							<div class="number">45836</div>
+							<div class="rate" :style="{color: '#D0021B'}">
+								<i class="fas fa-arrow-down"></i>
+
+								20%</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="left">
+							<div class="icon">
+								<img src="https://image.freepik.com/free-icon/wordpress-logo-of-a-letter-in-a-circle_318-49857.jpg" alt="">
+							</div>
+							<div class="name">Facebook</div>
+						</div>
+						<div class="right">
+							<div class="number">45836</div>
+							<div class="rate" :style="{color: '#D0021B'}">
+								<i class="fas fa-arrow-down"></i>20%</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="last_orders">
-					<div class="title">Lasted Orders</div>
-					<div class="items">
-						<div class="item">
-							<div class="first_col">
-								<img src="http://via.placeholder.com/100x100" alt="">
-							</div>
-							<div class="second_col">
-								<div class="title">Vintage T-shift</div>
-								<div class="datetime"><i class="fas fa-clock"></i>
-
-2018/6/13 13:42</div>
-								<div class="customer"><i class="fas fa-male"></i>
-
-Belle Willis</div>
-							</div>
-							<div class="third_col">
-								<div class="total">Total</div>
-								<div class="number">3200</div>
-							</div>
+			<div class="last_orders">
+				<div class="title">Lasted Orders</div>
+				<div class="items">
+					<div class="item">
+						<div class="first_col">
+							<img src="http://via.placeholder.com/100x100" alt="">
 						</div>
-						<div class="item">
-							<div class="first_col">
-								<img src="http://via.placeholder.com/100x100" alt="">
-							</div>
-							<div class="second_col">
-								<div class="title">Cowboy Jacket</div>
-								<div class="datetime"><i class="fas fa-clock"></i>
+						<div class="second_col">
+							<div class="title">Vintage T-shift</div>
+							<div class="datetime">
+								<i class="fas fa-clock"></i>
 
-2018/6/13 13:42</div>
-								<div class="customer"><i class="fas fa-male"></i>
+								2018/6/13 13:42</div>
+							<div class="customer">
+								<i class="fas fa-male"></i>
 
-Adrian Cummings</div>
-							</div>
-							<div class="third_col">
-								<div class="total">Total</div>
-								<div class="number">2800</div>
-							</div>
+								Belle Willis</div>
 						</div>
-						<div class="item">
-							<div class="first_col">
-								<img src="http://via.placeholder.com/100x100" alt="">
-							</div>
-							<div class="second_col">
-								<div class="title">Coach Coat</div>
-								<div class="datetime"><i class="fas fa-clock"></i>
+						<div class="third_col">
+							<div class="total">Total</div>
+							<div class="number">3200</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="first_col">
+							<img src="http://via.placeholder.com/100x100" alt="">
+						</div>
+						<div class="second_col">
+							<div class="title">Cowboy Jacket</div>
+							<div class="datetime">
+								<i class="fas fa-clock"></i>
 
-2018/6/13 13:42</div>
-								<div class="customer"><i class="fas fa-male"></i>
+								2018/6/13 13:42</div>
+							<div class="customer">
+								<i class="fas fa-male"></i>
 
-Lura Holland</div>
-							</div>
-							<div class="third_col">
-								<div class="total">Total</div>
-								<div class="number">1600</div>
-							</div>
+								Adrian Cummings</div>
+						</div>
+						<div class="third_col">
+							<div class="total">Total</div>
+							<div class="number">2800</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="first_col">
+							<img src="http://via.placeholder.com/100x100" alt="">
+						</div>
+						<div class="second_col">
+							<div class="title">Coach Coat</div>
+							<div class="datetime">
+								<i class="fas fa-clock"></i>
+
+								2018/6/13 13:42</div>
+							<div class="customer">
+								<i class="fas fa-male"></i>
+
+								Lura Holland</div>
+						</div>
+						<div class="third_col">
+							<div class="total">Total</div>
+							<div class="number">1600</div>
 						</div>
 					</div>
 				</div>
@@ -193,6 +193,7 @@ Lura Holland</div>
 		padding: 0;
 		margin: 0 auto;
 		.info {
+			margin-top: 30px;
 			display: flex;
 			justify-content: space-between;
 		}
@@ -319,7 +320,7 @@ Lura Holland</div>
 					padding: 0;
 					padding-bottom: 8px;
 					padding-top: 8px;
-					border-bottom: 1px solid #EBEBEB ;
+					border-bottom: 1px solid #EBEBEB;
 
 					&:last-child {
 						margin-bottom: 0px;
@@ -338,22 +339,25 @@ Lura Holland</div>
 						overflow: hidden;
 						display: flex;
 						flex-wrap: wrap;
-						>*{
+						>* {
 							margin: 0;
 						}
-						.title{
+						i{
+							width: 16px;
+						}
+						.title {
 							width: 100%;
 							font-size: 20px;
 							color: black;
 
 						}
-						.datetime{
+						.datetime {
 							width: 100%;
 							font-size: 16px;
 							color: #9B9B9B;
 
 						}
-						.customer{
+						.customer {
 							width: 100%;
 							font-size: 16px;
 							color: #9B9B9B;
@@ -368,10 +372,10 @@ Lura Holland</div>
 						display: flex;
 						flex-direction: column;
 						justify-content: flex-end;
-						.total{
+						.total {
 							font-size: 14px;
 						}
-						.number{
+						.number {
 							font-family: HelveticaNeue-Bold;
 							font-size: 20x;
 						}

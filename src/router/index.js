@@ -9,16 +9,13 @@ export default new Router({
 	routes: [
 		{
 			path:'/',
-			// name: 'home',
 			component: Home
 		},
 		{
 			path:'/order',
-			// name: 'Order',
 			component: Order
 		},{
 			path: '/product',
-			// name: 'Product',
 			component: Product
 		}
 	]
