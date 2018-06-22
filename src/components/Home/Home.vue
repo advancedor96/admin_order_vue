@@ -10,7 +10,7 @@
 			</div>
 		</div>
 		<div class="row cards">
-			<div class="card ">
+			<div class="card shadow">
 				<div class="card-body">
 					<h3 class="title">
 						<i class="fas fa-hand-holding-usd"></i>TOTAL REVENUE</h3>
@@ -221,6 +221,7 @@
 				width: 300px;
 				height: 138px; // margin: 10px;
 				text-align: center;
+				margin-bottom: 6px;
 				.card-body {
 					padding-top: 30px;
 					.title {
@@ -256,6 +257,10 @@
 	.row {
 		margin: 0;
 		margin-bottom: 20px;
+		.website,
+		.last_orders {
+			margin-bottom: 8px;
+		}
 		.website {
 			width: 460px;
 			background-color: #fff;
@@ -339,10 +344,11 @@
 						overflow: hidden;
 						display: flex;
 						flex-wrap: wrap;
+						align-items: center;
 						>* {
 							margin: 0;
 						}
-						i{
+						i {
 							width: 16px;
 						}
 						.title {
