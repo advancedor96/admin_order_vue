@@ -1,12 +1,26 @@
+
 <template>
 	<div class="container">
 		<div class="row info">
 			<div class="title">Overview</div>
 			<div class="right">
-				<div class="date">2018/6/6</div>
+				<div class="date">{{$moment().subtract(6, 'days').format("YYYY/MM/DD")}}</div>
 				<div class="dateBetweenIcon">›</div>
-				<div class="date">2018/6/13</div>
-				<div class="unit">Weekly</div>
+				<div class="date">{{$moment().format("YYYY/MM/DD")}}</div>
+
+				<div class="dropdown unit">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+ aria-expanded="false">
+						{{filterDate}}
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a v-for="item in dateOptions" :key="item" class="dropdown-item" href="#" @click="selectFilter(item)">{{item}}
+						</a>
+
+					</div>
+				</div>
+
+
 			</div>
 		</div>
 		<div class="row cards">
@@ -14,14 +28,14 @@
 				<div class="card-body">
 					<h3 class="title">
 						<i class="fas fa-hand-holding-usd"></i>TOTAL REVENUE</h3>
-					<h2 class="number" :style="{color: '#7ED321'}">54,540</h2>
+					<h2 class="number" :style="{color: '#7ED321'}">{{this.myR | currency}}</h2>
 				</div>
 			</div>
 			<div class="card shadow">
 				<div class="card-body">
 					<h3 class="title">
 						<i class="fas fa-th-large"></i>TOTAL COST</h3>
-					<h2 class="number" :style="{color: '#D0021B'}">12,660</h2>
+					<h2 class="number" :style="{color: '#D0021B'}">{{this.myC | currency}}</h2>
 				</div>
 			</div>
 
@@ -29,7 +43,7 @@
 				<div class="card-body">
 					<h3 class="title">
 						<i class="fas fa-money-bill"></i>NET INCOME</h3>
-					<h2 class="number" :style="{color: '#4A90E2'}">41,880</h2>
+					<h2 class="number" :style="{color: '#4A90E2'}">{{ (this.myR - this.myC) | currency }}</h2>
 				</div>
 			</div>
 
@@ -111,15 +125,14 @@
 							<img src="http://via.placeholder.com/100x100" alt="">
 						</div>
 						<div class="second_col">
-							<div class="title">Vintage T-shift</div>
+							<div class="title">{{$faker().commerce.productName()}}</div>
 							<div class="datetime">
 								<i class="fas fa-clock"></i>
 
-								2018/6/13 13:42</div>
+								{{$moment().format("YYYY/MM/DD HH:mm")}}</div>
 							<div class="customer">
 								<i class="fas fa-male"></i>
-
-								Belle Willis</div>
+								{{$faker().name.findName()}}</div>
 						</div>
 						<div class="third_col">
 							<div class="total">Total</div>
@@ -131,15 +144,14 @@
 							<img src="http://via.placeholder.com/100x100" alt="">
 						</div>
 						<div class="second_col">
-							<div class="title">Cowboy Jacket</div>
+							<div class="title">{{$faker().commerce.productName()}}</div>
 							<div class="datetime">
 								<i class="fas fa-clock"></i>
 
-								2018/6/13 13:42</div>
+								{{$moment().format("YYYY/MM/DD HH:mm")}}</div>
 							<div class="customer">
 								<i class="fas fa-male"></i>
-
-								Adrian Cummings</div>
+								{{$faker().name.findName()}}</div>
 						</div>
 						<div class="third_col">
 							<div class="total">Total</div>
@@ -151,15 +163,14 @@
 							<img src="http://via.placeholder.com/100x100" alt="">
 						</div>
 						<div class="second_col">
-							<div class="title">Coach Coat</div>
+							<div class="title">{{$faker().commerce.productName()}}</div>
 							<div class="datetime">
 								<i class="fas fa-clock"></i>
 
-								2018/6/13 13:42</div>
+								{{$moment().format("YYYY/MM/DD HH:mm")}}</div>
 							<div class="customer">
 								<i class="fas fa-male"></i>
-
-								Lura Holland</div>
+								{{$faker().name.findName()}}</div>
 						</div>
 						<div class="third_col">
 							<div class="total">Total</div>
@@ -178,9 +189,71 @@
 
 <script>
 	import LineChart from './LineChart.vue';
+	import Vue from "vue"
+	// 加這段filter可以讓金錢自動加$字號以及逗號
+	Vue.filter('currency', function (value) {
+		return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+	});
+
 	export default {
 		components: {
 			LineChart
+		},
+		data() {
+			return {
+				fakeRevenue: [],
+				fakeCost: [],
+				fakeIncome: [],
+				fakeDate: [],
+				totalR: 0,
+				totalC: 0,
+				totalRWeek: 0,
+				totalCWeek: 0,
+				dateOptions: ['Weekly', 'Monthly'],
+				filterDate: 'Weekly',
+			}
+		},
+		methods: {
+			selectFilter: function (newFilter) {
+				this.filterDate = newFilter;
+				// eslint-disable-next-line
+				// console.log('進入selectFilter函數，設為newFilter',newFilter);
+			}
+		},
+		computed: {
+			myR: function () {
+				if (this.filterDate === 'Weekly') {
+					return this.totalRWeek;
+				} else {
+					return this.totalR;
+				}
+			},
+			myC: function () {
+				if (this.filterDate === 'Weekly') {
+					return this.totalCWeek;
+				} else {
+					return this.totalC;
+				}
+
+			}
+		},
+		created: function () {
+			for (let i = 0; i <= 30; i++) {
+				let random1 = Vue._.random(10, 1000);
+				let random2 = Vue._.random(10, 500);
+				this.totalR += random1;
+				this.totalC += random2;
+
+				this.fakeRevenue.push(random1);
+				this.fakeCost.push(random2);
+				this.fakeIncome.push(random1 - random2);
+				this.fakeDate.push(this.$moment().subtract(30 - i, 'days').format("DD MMM"));
+				if (30 - i <= 6) {
+					this.totalRWeek += random1;
+					this.totalCWeek += random2;
+				}
+			}
+			// console.log(faker.finance.account());
 		}
 		// name: 'Home',
 	}
@@ -355,6 +428,9 @@
 							width: 100%;
 							font-size: 20px;
 							color: black;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							white-space: nowrap;
 
 						}
 						.datetime {
