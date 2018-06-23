@@ -1,4 +1,3 @@
-
 <template>
 	<div class="container">
 		<div class="row info">
@@ -49,7 +48,12 @@
 
 		</div>
 		<div class="row activity">
-			<LineChart />
+			<div class="line-chart">
+				<div class="sub-block">
+					<div class="title">Activity</div>
+					<canvas id="mycanvas"></canvas>
+				</div>
+			</div>
 		</div>
 
 		<div class="row third_block_row">
@@ -188,7 +192,9 @@
 </template>
 
 <script>
-	import LineChart from './LineChart.vue';
+	// import LineChart from './LineChart.vue';
+
+	import Chart from 'chart.js';
 	import Vue from "vue"
 	// 加這段filter可以讓金錢自動加$字號以及逗號
 	Vue.filter('currency', function (value) {
@@ -196,9 +202,9 @@
 	});
 
 	export default {
-		components: {
-			LineChart
-		},
+		// components: {
+		// 	// LineChart
+		// },
 		data() {
 			return {
 				fakeRevenue: [],
@@ -218,6 +224,64 @@
 				this.filterDate = newFilter;
 				// eslint-disable-next-line
 				// console.log('進入selectFilter函數，設為newFilter',newFilter);
+				var ctx = document.getElementById("mycanvas");
+				// var myChart = 
+				new Chart(ctx, {
+					type: 'line',
+					data: {
+						labels: this.myDate,
+						datasets: [{
+							label: 'Revenue',
+							data: newFilter==='Weekly'? this.fakeRevenue.slice(31-7, 31): this.fakeRevenue,
+							backgroundColor: [
+								'#7ED321'
+							],
+							borderColor: [
+								'#7ED321'
+							],
+							borderWidth: 2,
+							fill: false,
+							lineTension: false,
+						},{
+							label: 'Cost',
+							data: newFilter==='Weekly'? this.fakeCost.slice(31-7, 31): this.fakeCost,
+							backgroundColor: [
+								'#D0021B'
+							],
+							borderColor: [
+								'#D0021B'
+							],
+							borderWidth: 2,
+							fill: false,
+							lineTension: false,
+						},{
+							label: 'Income',
+							data: newFilter==='Weekly'? this.fakeIncome.slice(31-7, 31): this.fakeIncome,
+							backgroundColor: [
+								'#4A90E2'
+							],
+							borderColor: [
+								'#4A90E2'
+							],
+							borderWidth: 2,
+							fill: false,
+							lineTension: false,
+						},
+						
+						]
+					},
+					options: {
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true
+								}
+							}]
+						}
+					}
+				});
+
+
 			}
 		},
 		computed: {
@@ -235,6 +299,13 @@
 					return this.totalC;
 				}
 
+			},
+			myDate: function () {
+				if (this.filterDate === 'Weekly') {
+					return this.fakeDate.slice(this.fakeDate.length - 7, this.fakeDate.length);
+				} else {
+					return this.fakeDate;
+				}
 			}
 		},
 		created: function () {
@@ -253,7 +324,15 @@
 					this.totalCWeek += random2;
 				}
 			}
-			// console.log(faker.finance.account());
+			// eslint-disable-next-line
+			// console.log('revenue:', this.fakeRevenue);
+			// eslint-disable-next-line
+			// console.log('fakeCost:', this.fakeCost);
+			// eslint-disable-next-line
+			// console.log('fakeIncome:', this.fakeIncome);
+		},
+		mounted(){
+			this.selectFilter('Weekly');
 		}
 		// name: 'Home',
 	}
@@ -466,5 +545,22 @@
 			}
 		}
 
+	}
+
+	.line-chart {
+		width: 100%;
+		.sub-block {
+			width: 100%;
+			align-items: flex-start;
+			overflow: auto;
+			.title {
+				margin-top: 30px;
+				margin-left: 40px;
+			}
+		}
+		#mycanvas {
+			width: 100%;
+			min-width: 360px;
+		}
 	}
 </style>
